@@ -259,6 +259,123 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/12/19/Ionic中上拉加载的实现/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="翁锦程">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/images/a.jpg">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="翁锦程的博客">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="翁锦程的博客" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/12/19/Ionic中上拉加载的实现/" itemprop="url">
+                  Ionic中上拉加载的实现
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-12-19T21:25:49+08:00">
+                2016-12-19
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>本人虽然经验不足，但是最近在做hybird app时候遇到了上拉加载数据的难题，在搜寻资料时发现没有特别完整的资料（可能我没找到）,在经过我几天的的努力后，终于是<br>完成了这个需求。那么，废话不多说啦！^_^。<br>首先，我们得创建ionic项目，当然这个不在本文范围内，因此我简略说一下：<br>    一：安装npm <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$npm install</div></pre></td></tr></table></figure><br>    二：安装ionic和cordova <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$npm install -g cordova ionic</div></pre></td></tr></table></figure><br>    三：创建应用：<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ionic start myapp sidemenu</div></pre></td></tr></table></figure><br>ionic项目建立了，然后我们来详细说明上拉加载数据<br>    一：创建数据库来模拟（这里就不多说明了–( ﹁ ﹁ ) ~→反正前端不太需要干这事）<br>    二：写API来获取相应数据:<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;?php</span></div><div class="line">header(<span class="string">'Content-Type:application/json;charset=UTF-8'</span>);</div><div class="line">$conn = mysqli_connect(<span class="string">'127.0.0.1'</span>,<span class="string">'root'</span>,<span class="string">''</span>,<span class="string">'dark'</span>,<span class="number">3306</span>);</div><div class="line">$sql = <span class="string">"SET NAMES UTF8"</span>;</div><div class="line">mysqli_query($conn,$sql);</div><div class="line">$sql = <span class="string">"SELECT * FROM news3"</span>;</div><div class="line">$result = mysqli_query($conn,$sql);</div><div class="line">$arr = [];</div><div class="line"><span class="keyword">while</span>(($essay = mysqli_fetch_assoc($result))!=<span class="keyword">null</span>)&#123;</div><div class="line">      $arr[] = $essay;</div><div class="line">&#125;</div><div class="line"><span class="keyword">echo</span> json_encode($arr);</div></pre></td></tr></table></figure><br>用原生PHP啦，框架就会个CI，而且还不熟就不来献丑了。<br>必须给个提醒啊 其中news3是我的数据库 如果需要参照我的代码的记得自己建个数据库来测试。<br>    三：书写controller代码<br>       <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">.controller(<span class="string">'browse'</span>,<span class="function"><span class="keyword">function</span> (<span class="params">$scope,$http</span>) </span>&#123;</div><div class="line">     $http(&#123;<span class="attr">method</span>:<span class="string">'GET'</span>,<span class="attr">url</span>:<span class="string">'data/getData.php'</span>&#125;).then(<span class="function"><span class="keyword">function</span> <span class="title">successCallback</span>(<span class="params">data</span>) </span>&#123;</div><div class="line">         $scope.data = data.data;</div><div class="line">     &#125;)</div><div class="line">     $scope.do_infinite = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">         $http(&#123;<span class="attr">method</span>:<span class="string">'GET'</span>,<span class="attr">url</span>:<span class="string">'data/getData.php'</span>&#125;).then(<span class="function"><span class="keyword">function</span> <span class="title">successCallback</span>(<span class="params">data</span>) </span>&#123;</div><div class="line">         <span class="keyword">var</span> news = data.data;</div><div class="line">         <span class="keyword">for</span>(<span class="keyword">var</span> item <span class="keyword">in</span> news)&#123;</div><div class="line">             $scope.data.push(news[item]);</div><div class="line">         &#125;</div><div class="line">             $scope.$broadcast(<span class="string">'scroll.infiniteScrollComplete'</span>);</div><div class="line">             <span class="built_in">console</span>.log($scope.data);</div><div class="line">         &#125;);</div><div class="line">     &#125;</div><div class="line">     $scope.$on(<span class="string">'$stateChangeSuccess'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">          $scope.do_infinite();</div><div class="line">     &#125;);</div><div class="line">&#125;)</div></pre></td></tr></table></figure><br>    四：书写HTML部分的代码<br>    <figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">ion-view</span> <span class="attr">view-title</span>=<span class="string">"Browse"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">ion-content</span> <span class="attr">style</span>=<span class="string">"padding-top:56px"</span> <span class="attr">scroll-hide</span> <span class="attr">on-scroll</span>=<span class="string">"getScrollPosition()"</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"row"</span> <span class="attr">ng-repeat</span>=<span class="string">"data in data"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"col-40"</span>&gt;</span></div><div class="line">          <span class="tag">&lt;<span class="name">img</span> <span class="attr">style</span>=<span class="string">"width: 100%;height: 100%"</span> <span class="attr">ng-src</span>=<span class="string">""</span> <span class="attr">alt</span>=<span class="string">""</span>/&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"col-60"</span>&gt;</span></div><div class="line">          <span class="tag">&lt;<span class="name">h1</span>&gt;</span><span class="tag">&lt;/<span class="name">h1</span>&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">      <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">ion-infinite-scroll</span> <span class="attr">on-infinite</span>=<span class="string">"do_infinite()"</span> <span class="attr">immediate-check</span>=<span class="string">"false"</span> <span class="attr">distance</span>=<span class="string">"1%"</span>&gt;</span><span class="tag">&lt;/<span class="name">ion-infinite-scroll</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">ion-content</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">ion-view</span>&gt;</span></div></pre></td></tr></table></figure><br>    这样就可以上拉触发do_infinite()函数来加载数据了<br>    具体代码可以去github查看<a href="https://github.com/wengjincheng/Ionic-demo" target="_blank" rel="external">ionic-demo</a></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
   <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/12/18/测试/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -426,7 +543,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">1</span>
+              <span class="site-state-item-count">2</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -443,7 +560,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-count">2</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
