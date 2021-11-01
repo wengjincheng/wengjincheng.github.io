@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Adam Blog</title><link>https://wengjincheng.github.io/</link><description>Recent content on Adam Blog</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Thu, 28 Oct 2021 21:38:23 +0800</lastBuildDate><atom:link href="https://wengjincheng.github.io/index.xml" rel="self" type="application/rss+xml"/><item><title>Git 在工作中常用的操作</title><link>https://wengjincheng.github.io/posts/git-operations-for-work/</link><pubDate>Thu, 28 Oct 2021 21:38:23 +0800</pubDate><guid>https://wengjincheng.github.io/posts/git-operations-for-work/</guid><description>git 分支的建立 git checkout -b branchname 撤销修改 git checkout -f // 撤销所有未commit的修改，会导致改动删除 git reset --soft HEAD^ // 撤销当前最新commit，保留改动，改动还在暂存区 git reset --mixed HEAD^ // 撤销当前最新commit 和 add, 保留改动 (这是默认操作) git reset --hard HEAD^ // 撤销当前最新commit 和 add, 不保留改动 查询本地和远程分支 git branch // 查询本地分支 git branch -r // 查看远程分支 重命名本地分支 git branch -m oldname newname 删除本地分支/远程分支 git branch -d branchname // 删除本地分支 git push origin --delete branchname // 删除远程分支 更新远程分支列表 git remote update origin --prune 查询&amp;amp;修改本地commit记录 git log // 查询 git commit --amend // 修改最新的commit记录 放弃已有commit 跳转至指定commit git reset --hard commitname // 这个commit之后的commits都会被删除 查询本地tag 、创建tag、推送tag远程 git tag // 查询本地tag git tag &amp;lt;tagname&amp;gt; // 创建tag git push origin &amp;lt;tagname&amp;gt; // 推送tag至远程 参考 https://www.</description></item><item><title>About</title><link>https://wengjincheng.github.io/about/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://wengjincheng.github.io/about/</guid><description>你好，我是Adam Weng
 目前就职于 Nokia
-我的工程领域兴趣：Web开发、可视化
+我的工程领域兴趣：Web开发（React, Node, TypeScript）、可视化
 我的科研领域兴趣：3D Face Reconstruction, Machine Learning
 Hi, My name is Adam Weng
 I&amp;rsquo;m working for Nokia
-My engineer interesting is: Web develop, Visualization
+My engineer interesting is: Web develop（React, Node, TypeScript）, Visualization
 My research interesting is: 3D Face Reconstruction, Machine Learning</description></item></channel></rss>
