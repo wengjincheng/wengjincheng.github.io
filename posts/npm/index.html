@@ -3,7 +3,7 @@
 <meta charset=utf-8>
 <meta name=viewport content="width=device-width,initial-scale=1">
 <meta name=description content>
-<title>Posts | Adam Blog</title>
+<title>NPM 开发相关 | Adam Blog</title>
 <link rel=stylesheet href=/css/reset.css>
 <link rel=stylesheet href=/css/font.css>
 <link rel=stylesheet href=/css/smigle.css>
@@ -40,27 +40,42 @@
 <hr>
 </header>
 <div id=content>
-<main id=archive>
-<h1>Posts</h1>
-<h3>2021</h3>
-<ul id=postsByDate>
-<li>
-<div class=date>
-Nov 2
+<main>
+<article>
+<h1>NPM 开发相关</h1>
+<div class=post-meta>
+<strong>
+<span>Posted on</span>
+<time>2021-11-02</time>
+<span>in</span>
+<a href=/categories/npm>NPM</a>
+</strong>
+<span> • 25 words</span>
+<span> • 1 minute read</span>
+<div>
+<span>Tags:</span>
+<a href=/tags/npm>NPM</a>
 </div>
-<div class=title>
-<a href=/posts/npm/>NPM 开发相关</a>
 </div>
-</li>
-<li>
-<div class=date>
-Oct 28
-</div>
-<div class=title>
-<a href=/posts/git-operations-for-work/>Git 在工作中常用的操作</a>
-</div>
-</li>
+<div><h2 id=npm源相关代理镜像>NPM源相关代理/镜像</h2>
+<ul>
+<li>切换为淘宝源</li>
 </ul>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>npm config set registry https://registry.npm.taobao.org
+</code></pre></div><ul>
+<li>临时使用淘宝源</li>
+</ul>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>npm install xxxx --save --registry https://registry.npm.taobao.org
+</code></pre></div><ul>
+<li>切换为官方源</li>
+</ul>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>npm config set registry https://registry.npmjs.org/
+</code></pre></div><ul>
+<li>查看当前使用源</li>
+</ul>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>npm config get registry
+</code></pre></div></div>
+</article>
 </main>
 </div>
 <footer>
