@@ -1,11 +1,6 @@
 ---
 title: About
 layout: default
-categories:
-  - git
-tags:
-  - git
-  - work
 ---
 
 你好，我是Adam Weng

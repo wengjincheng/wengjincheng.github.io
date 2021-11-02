@@ -2,6 +2,11 @@
 title: "Git 在工作中常用的操作"
 date: 2021-10-28T21:38:23+08:00
 draft: false
+categories:
+  - git
+tags:
+  - git
+  - work
 ---
 
 ## git 分支的建立
