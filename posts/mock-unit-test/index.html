@@ -1,0 +1,123 @@
+<!doctype html><html lang=en>
+<head>
+<meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<meta name=description content>
+<title>React单元测试-如何测试Ant-design的组件 | Adam Blog</title>
+<link rel=stylesheet href=/css/reset.css>
+<link rel=stylesheet href=/css/font.css>
+<link rel=stylesheet href=/css/smigle.css>
+<link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png>
+<link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png>
+<link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png>
+<link rel=manifest href=/site.webmanifest>
+<link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5>
+<meta name=msapplication-TileColor content="#da532c">
+<meta name=theme-color content="#ffffff">
+</head>
+<body>
+<header>
+<div id=brand>
+<a class=icon-link href=https://wengjincheng.github.io/>
+<img class=icon src=/images/brandIcon.svg>
+</a>
+<div class=text>
+<a href=https://wengjincheng.github.io/><h1>Adam Blog</h1></a>
+<h3>Think somthing, Write something</h3>
+</div>
+</div>
+<nav>
+<a href=/><b>Home</b></a>
+|
+<a href=/about/><b>About</b></a>
+|
+<a href=/posts/><b>Posts</b></a>
+|
+<a href=/categories/><b>Categories</b></a>
+|
+<a href=/tags/><b>Tags</b></a>
+</nav>
+<hr>
+</header>
+<div id=content>
+<main>
+<article>
+<h1>React单元测试-如何测试Ant-design的组件</h1>
+<div class=post-meta>
+<strong>
+<span>Posted on</span>
+<time>2021-12-01</time>
+<span>in</span>
+<a href=/categories/unit-test>Unit Test</a>
+</strong>
+<span> • 77 words</span>
+<span> • 1 minute read</span>
+<div>
+<span>Tags:</span>
+<a href=/tags/unit-test>Unit Test</a>
+</div>
+</div>
+<div><p><strong>本章记录踩过的前端单元测试的坑</strong></p>
+<h3 id=react项目中使用例如ant-design的库后如何测试>React项目中使用例如Ant-design的库后，如何测试？</h3>
+<p>比如一个表单页面，最常见的必须要测试表单的render、validation、以及提交。</p>
+<p>但是使用Jest, React-testing-library的情况下来测试表单内容的填写以及提交会遇到Select组件的Options找不到的情况下</p>
+<p>比如：</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-JavaScript data-lang=JavaScript><span style=color:#a6e22e>userEvent</span>.<span style=color:#a6e22e>selectOptions</span>(<span style=color:#66d9ef>await</span> <span style=color:#a6e22e>findByPlaceholderText</span>(<span style=color:#e6db74>&#39;Please select priority&#39;</span>),<span style=color:#e6db74>&#39;A-Critical&#39;</span>);
+</code></pre></div><p>跑一下test 肯定会提示你&rsquo;A-Critical&rsquo;找不到</p>
+<p>这里的解决方法是：Mock Antd使用的组件，这里就是Select</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-JavaScript data-lang=JavaScript><span style=color:#75715e>// Mock Antd , including Select
+</span><span style=color:#75715e></span><span style=color:#a6e22e>jest</span>.<span style=color:#a6e22e>mock</span>(<span style=color:#e6db74>&#39;antd&#39;</span>, () =&gt; {
+  <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>antd</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>jest</span>.<span style=color:#a6e22e>requireActual</span>(<span style=color:#e6db74>&#39;antd&#39;</span>);
+
+  <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>Select</span> <span style=color:#f92672>=</span> ({ <span style=color:#a6e22e>children</span>, <span style=color:#a6e22e>onChange</span>, ...<span style=color:#a6e22e>otherProps</span> }<span style=color:#f92672>:</span> <span style=color:#a6e22e>any</span>) =&gt; {
+    <span style=color:#75715e>// otherProps必须加上，因为Select组件的值还是蛮多的，要是你加了但是这里没mock，会找不到
+</span><span style=color:#75715e></span>    <span style=color:#66d9ef>return</span> <span style=color:#f92672>&lt;</span><span style=color:#a6e22e>select</span> <span style=color:#a6e22e>onChange</span><span style=color:#f92672>=</span>{<span style=color:#a6e22e>e</span> =&gt; <span style=color:#a6e22e>onChange</span>(<span style=color:#a6e22e>e</span>.<span style=color:#a6e22e>target</span>.<span style=color:#a6e22e>value</span>)} {...<span style=color:#a6e22e>otherProps</span>}<span style=color:#f92672>&gt;</span>{<span style=color:#a6e22e>children</span>}<span style=color:#f92672>&lt;</span><span style=color:#960050;background-color:#1e0010>/select&gt;;</span>
+  };
+
+  <span style=color:#a6e22e>Select</span>.<span style=color:#a6e22e>Option</span> <span style=color:#f92672>=</span> ({ <span style=color:#a6e22e>children</span>, ...<span style=color:#a6e22e>otherProps</span> }<span style=color:#f92672>:</span> <span style=color:#a6e22e>any</span>) =&gt; {
+    <span style=color:#66d9ef>return</span> <span style=color:#f92672>&lt;</span><span style=color:#a6e22e>option</span> {...<span style=color:#a6e22e>otherProps</span>}<span style=color:#f92672>&gt;</span>{<span style=color:#a6e22e>children</span>}<span style=color:#f92672>&lt;</span><span style=color:#960050;background-color:#1e0010>/option&gt;;</span>
+  }
+  
+  <span style=color:#75715e>// 为什么使用jest.fn()，其实我们test只关心function的处罚，而jest.fn() jest可以记录是否被调用
+</span><span style=color:#75715e></span>  <span style=color:#66d9ef>return</span> {
+    ...<span style=color:#a6e22e>antd</span>,  
+    <span style=color:#a6e22e>Select</span>,
+    <span style=color:#a6e22e>Modal</span><span style=color:#f92672>:</span> {
+      <span style=color:#a6e22e>success</span><span style=color:#f92672>:</span> <span style=color:#a6e22e>jest</span>.<span style=color:#a6e22e>fn</span>()
+    }
+  }
+});
+</code></pre></div><h3 id=参考>参考</h3>
+<p><a href=https://github.com/ant-design/ant-design/issues/21080>https://github.com/ant-design/ant-design/issues/21080</a></p>
+</div>
+</article>
+</main>
+</div>
+<footer>
+<hr>
+<p id=social>
+Find me around the web:
+<br>
+<a href=https://github.com/wengjincheng>GitHub</a>
+|
+<a href=https://www.reddit.com/user/wengjin456123>Reddit</a>
+|
+<a href=https://twitter.com/adamweng7>Twitter</a>
+</p>
+<p class=copyright>
+Copyright © 2021
+<a href=https://wengjincheng.github.io/><strong>Adam Weng</strong></a>.
+This work is licensed under the
+<a href=http://creativecommons.org/licenses/by-sa/4.0/>CC BY-SA 4.0</a> license.
+</p>
+<p class=builtWith>
+Built with
+<a href=http://www.gohugo.io/>Hugo</a>,
+using the theme
+<a href=https://gitlab.com/ian-s-mcb/smigle-hugo-theme>smigle</a>,
+which was influenced by the theme
+<a href=https://github.com/sumnerevans/smol>smol</a>.
+</p>
+</footer>
+</body>
+</html>
