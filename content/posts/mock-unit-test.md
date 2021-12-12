@@ -40,7 +40,7 @@ jest.mock('antd', () => {
     return <option {...otherProps}>{children}</option>;
   }
   
-  // 为什么使用jest.fn()，其实我们test只关心function的处罚，而jest.fn() jest可以记录是否被调用
+  // 为什么使用jest.fn()，其实我们test只关心function的触发，而jest.fn() jest可以记录是否被调用
   return {
     ...antd,  
     Select,
