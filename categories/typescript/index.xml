@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>TypeScript on Adam Blog</title><link>https://wengjincheng.github.io/categories/typescript/</link><description>Recent content in TypeScript on Adam Blog</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Sat, 11 Dec 2021 09:02:05 +0800</lastBuildDate><atom:link href="https://wengjincheng.github.io/categories/typescript/index.xml" rel="self" type="application/rss+xml"/><item><title>TypeScript 开发问题和解决方法</title><link>https://wengjincheng.github.io/posts/typescript/</link><pubDate>Sat, 11 Dec 2021 09:02:05 +0800</pubDate><guid>https://wengjincheng.github.io/posts/typescript/</guid><description>本文记录本人在日常工作中遇到的TypeScript的小问题
+关于 extends 已有 interface 后需要忽略一些不需要参数的问题 假如你有一个这样的interface:
+interface A { name: string, age: number, job: string, } 你需要extends 这个 A 类型 到 B类型：
+interface B extends A {} 但你不需要其中的job，那么怎么办？这么办：
+interface B extends Omit&amp;lt;A, &amp;#39;job&amp;#39;&amp;gt; {}</description></item></channel></rss>
