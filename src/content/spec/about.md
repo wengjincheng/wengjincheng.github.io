@@ -5,10 +5,10 @@ I am Adam Weng, holding both a bachelor's and a master's degree in computer scie
 
 ### My work experience
 
-<img style="margin: 0px" src="https://nmgimg.www.panguidc.com/2024/08/04/5a08aaca64537b1042fe7ecb8e9140b3.png" alt="Paypal" width="200" height="auto">
+<img style="margin: 0px" src="https://raw.githubusercontent.com/wengjincheng/wengjincheng.github.io/main/public/favicon/Paypal-logo.png" alt="Paypal" width="200" height="auto">
 I have been working as a Full-Stack Engineer at PayPal since July 2024, where I have been involved in the development of PayPal's reconciliation compliance system and marketing business system.
 
-<img style="margin: 0px" src="https://nmgimg.www.panguidc.com/2024/08/04/ade0d4887f1a53c47425b3c8c6e6f3fe.png" alt="NOKIA" width="200" height="auto">
+<img style="margin: 0px" src="https://raw.githubusercontent.com/wengjincheng/wengjincheng.github.io/main/public/favicon/NOKIA-logo.png" alt="NOKIA" width="200" height="auto">
 From 2021 to August 2023, I worked as a Full-Stack Engineer at NOKIA. During my time there, I was responsible for developing a 5G communication log analysis visualization system in collaboration with colleagues from Poland, Germany, France, and Finland, which helped 5G communication engineers improve the efficiency of analyzing communication logs.
 
 <img style="margin-bottom: 20px" src="https://kunpro.s3.eu-west-2.amazonaws.com/sites/default.svg" alt="Iletpro" width="200" height="auto">
