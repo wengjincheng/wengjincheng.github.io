@@ -2,7 +2,7 @@
 title: Git Usage
 published: 2024-08-04
 description: 'List the common git usage'
-image: '/src/assets/images/git-usage.webp'
+image: './git-usage.webp'
 tags: ['Git']
 category: 'Git'
 draft: false 
