@@ -12,6 +12,8 @@ draft: false
 
 ``` shell
 git checkout -b branchname
+
+git checkout -b <local-branch-name> <origin-branch-name> // create a local branch of remote branch
 ```
 
 ## revoke operations
