@@ -80,12 +80,26 @@ git push origin --delete branchname // remote
 git remote update origin --prune
 ```
 
-## check&change commit
+## change commit message/ melt commits into one
 
 ``` shell
 git log // check
 
+// change latest commit message or add changes into last commit(will effect other repos, do not suggest in the branch that cooperate with other people)
 git commit --amend // change latest commit
+
+// use rebase command
+git rebase -i HEAD~3 // deal recent 3 commits
+
+// then edit in editor(it will show auto)
+pick abc123 First commit message
+squash def456 Second commit message
+squash ghi789 Third commit message
+
+// If you want to keep other commit, such as third commit
+pick ghi789 Third commit message (this is the one you want to keep)
+squash abc123 First commit message
+squash def456 Second commit message
 ```
 
 ## discard commits
