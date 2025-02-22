@@ -29,7 +29,7 @@ This isn't another casual review - it's targeted cognitive reinforcement for pro
 
 **Definition**: The nullish coalescing (??) operator is a logical operator that returns its right-hand side operand when its left-hand side operand is null or undefined, and otherwise returns its left-hand side operand.
 
-```JavaScript
+``` JavaScript
 
 let left_side = null
 const right_side = 'Oh, It is me!'
