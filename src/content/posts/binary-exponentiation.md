@@ -5,5 +5,5 @@ description: ''
 image: ''
 tags: ['Algorithm', 'Trick', 'Arithmetic']
 category: 'Algorithm'
-draft: true 
+draft: false 
 ---

@@ -2,7 +2,7 @@
 title: JavaScript Operators
 published: 2025-02-22
 description: ''
-image: ''
+image: './pic-jsoperators.webp'
 tags: ['JavaScript']
 category: 'JavaScript'
 draft: false 
