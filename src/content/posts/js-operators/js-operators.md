@@ -41,3 +41,20 @@ const res2 = left_side ?? right_side // HA, It is me now, fuck right!
 ```
 
 MDN: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Nullish_coalescing
+
+### !!
+
+**Tips**: The !! operator is not official operator but use two ! operator, the first ! make the content to boolean type and the second make it reversed.
+
+*This is always the way I met !! in my work days! Always make me confused, sucks!*
+
+``` javascript
+
+const my_content = underfind
+
+const result = !!my_content // false, the first ! make it to true, the second ! make it to false
+
+
+```
+
+MDN: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Nullish_coalescing
