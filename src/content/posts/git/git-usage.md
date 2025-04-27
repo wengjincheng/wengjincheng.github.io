@@ -127,6 +127,19 @@ git log --graph // see the history with the branch ui
 git show <commit-id hash> // see the changes of commit
 ```
 
+## stash branch code
+
+```shell
+
+git stash save "commit message" // stash the changes
+git stash pop // get the changes from stash and delete this stash
+git stash list // check the stash list
+git stash drop stash@{0} // delete the stash
+git stash clear // clear all stash
+git stash --keep-index // only stash work space not staging space
+
+```
+
 ### refers
 
 - https://www.cnblogs.com/lfxiao/p/9378763.html
