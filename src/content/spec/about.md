@@ -3,6 +3,12 @@
 ### Who am I
 I am Adam Weng, holding both a bachelor's and a master's degree in computer science. I am a software engineer focusing primarily on web and machine learning software development. I have previously developed an online real estate rental and sales website at [Iletpro](https://www.iletpro.com/) and worked on 5G Troubleshooter software at [Nokia](https://www.nokia.com/). Currently, I am developing PayPal's reconciliation compliance system and marketing business system.
 
+### Things I am doing
+
+**Open Source Project:** [fuwari](https://github.com/saicaca/fuwari)
+
+**Lerobot:** Learn and do some tests on So-Arm-101 machine
+
 ### My work experience
 
 <img style="margin: 0px" src="https://raw.githubusercontent.com/wengjincheng/wengjincheng.github.io/main/public/favicon/Paypal-logo.png" alt="Paypal" width="200" height="auto">
@@ -21,8 +27,4 @@ From 2017 to 2019, I joined the Juwai.com technical team as an outsourced techni
 ### Education
 
 <img style="margin-bottom: 0px" src="https://upload.wikimedia.org/wikipedia/en/thumb/2/2a/East_China_Normal_University_logo.svg/300px-East_China_Normal_University_logo.svg.png" alt="Iletpro" width="100" height="auto">
-
-### Things I am interst or doing
-
-It's great to hear that you enjoy being part of great companies and contributing to meaningful work!
 
