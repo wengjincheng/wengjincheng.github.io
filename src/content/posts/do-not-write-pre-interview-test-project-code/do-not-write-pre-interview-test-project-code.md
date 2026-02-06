@@ -3,10 +3,10 @@ title: Please Do Not Write Preinterview Code Test Project
 published: 2026-02-06
 description: ''
 image: './do-not-write-preinterview-code-image.png'
-tags: ["Interview"]
-category: ''
+tags: ["Interview", "FeedMe"]
+category: 'Interview'
 draft: false 
-lang: ''
+lang: 'en'
 ---
 
 In 2025, I received an interview invitation from FeedMe, a Malaysian company that develops online ordering systems. After an initial HR call, I was given a [code test](https://github.com/feedmepos/se-take-home-assignment) to create a McDonald's order system.
