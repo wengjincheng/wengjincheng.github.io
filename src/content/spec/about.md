@@ -5,8 +5,6 @@ I am Adam Weng, holding both a bachelor's and a master's degree in computer scie
 
 ### Things I am doing
 
-**Open Source Project:** [fuwari](https://github.com/saicaca/fuwari)
-
 **Lerobot:** Learn and do some tests on So-Arm-101 machine
 
 ### My work experience
