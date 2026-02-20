@@ -3,9 +3,13 @@
 ### Who am I
 I am Adam Weng, holding both a bachelor's and a master's degree in computer science. I am a software engineer focusing primarily on web and machine learning software development. I have previously developed an online real estate rental and sales website at [Iletpro](https://www.iletpro.com/) and worked on 5G Troubleshooter software at [Nokia](https://www.nokia.com/). Currently, I am developing PayPal's reconciliation compliance system and marketing business system.
 
-### Things I am doing
+### Things I am doing ~ NOW
 
-**Lerobot:** Learn and do some tests on So-Arm-101 machine
+**PayPal Merchant Insights:** Analyze the whole PayPal Global Merchant Transaction Data, using frontier AI Models (also custom trained/finetuned Models) and Infras, to get the valuable Insights for Bussiness.
+
+**[学术伴:](https://xsban.com/)** Since April 2025, I have also been involved in the *学术版* project as a part-time CTO, which helps students write papers and theses more quickly and achieve high quality using frontier AI models (GPT-5, Claude 4.5 Sonnet, DeepSeek, etc.). In addition, this startup project has gained hundreds of initial users—students who are attracted by the functions I built.
+
+**Lerobot:** Learn and do play fun using So-Arm-101 machine ~ great Arm machine for self-learning
 
 ### My work experience
 
