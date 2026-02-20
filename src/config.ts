@@ -54,18 +54,18 @@ export const navBarConfig: NavBarConfig = {
 
 export const profileConfig: ProfileConfig = {
 	avatar: "assets/images/cm-ala.jpg", // Relative to the /src directory. Relative to the /public directory if it starts with '/'
-	name: "Lorem Ipsum",
+	name: "Weng Jin Cheng(翁锦程)",
 	bio: "Whatever you want to do, just do it!",
 	links: [
 		{
-		name: 'GitHub',
-		icon: 'fa6-brands:github',
-		url: 'https://github.com/wengjincheng',
+			name: "GitHub",
+			icon: "fa6-brands:github",
+			url: "https://github.com/wengjincheng",
 		},
 		{
-		name: 'Linkdein',
-		icon: 'fa6-brands:linkedin',
-		url: 'https://www.linkedin.com/in/jincheng-weng-8474bb12a/',
+			name: "Linkdein",
+			icon: "fa6-brands:linkedin",
+			url: "https://www.linkedin.com/in/jincheng-weng-8474bb12a/",
 		},
 	],
 };
