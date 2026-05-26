@@ -5,16 +5,18 @@ I am Adam Weng, holding both a bachelor's and a master's degree in computer scie
 
 ### Things I am doing ~ NOW
 
-**PayPal Merchant Insights:** Analyze the whole PayPal Global Merchant Transaction Data, using frontier AI Models (also custom trained/finetuned Models) and Infras, to get the valuable Insights for Bussiness.
+~~**PayPal Merchant Insights:** Analyze the whole PayPal Global Merchant Transaction Data, using frontier AI Models (also custom trained/finetuned Models) and Infras, to get the valuable Insights for Bussiness.~~
 
-**[学术伴:](https://xsban.com/)** Since April 2025, I have also been involved in the *学术伴* project as a part-time CTO, which helps students write papers and theses more quickly and achieve high quality using frontier AI models (GPT-5, Claude 4.5 Sonnet, DeepSeek, etc.). In addition, this startup project has gained hundreds of initial users—students who are attracted by the functions I built.
+**[学术伴:](https://xsban.com/home)** Since April 2025, I have also been involved in the *学术伴* project as co-founder, which helps students write papers and theses more quickly and achieve high quality using frontier AI models (GPT, Claude Opus, DeepSeek, etc.). In addition, this startup project has gained hundreds of initial users—students who are attracted by the functions I built.
+
+**UPDATES: We got 8k+ users now, and hundreds paid users!**
 
 **Lerobot:** Learn and do play fun using So-Arm-101 machine ~ great Arm machine for self-learning
 
 ### My work experience
 
 <img style="margin: 0px" src="https://raw.githubusercontent.com/wengjincheng/wengjincheng.github.io/main/public/favicon/Paypal-logo.png" alt="Paypal" width="200" height="auto">
-I have been working as a Full-Stack Engineer at PayPal since July 2024, where I have been involved in the development of PayPal's reconciliation compliance system and marketing business system.
+I have been working as a Full-Stack Engineer at PayPal From July 2024 to April 2026, where I have been involved in the development of PayPal's reconciliation compliance system and marketing business system.
 
 <img style="margin: 0px" src="https://raw.githubusercontent.com/wengjincheng/wengjincheng.github.io/main/public/favicon/NOKIA-logo.png" alt="NOKIA" width="200" height="auto">
 From 2021 to August 2023, I worked as a Full-Stack Engineer at NOKIA. During my time there, I was responsible for developing a 5G communication log analysis visualization system in collaboration with colleagues from Poland, Germany, France, and Finland, which helped 5G communication engineers improve the efficiency of analyzing communication logs.
@@ -28,5 +30,5 @@ From 2017 to 2019, I joined the Juwai.com technical team as an outsourced techni
 
 ### Education
 
-<img style="margin-bottom: 0px" src="https://upload.wikimedia.org/wikipedia/en/thumb/2/2a/East_China_Normal_University_logo.svg/300px-East_China_Normal_University_logo.svg.png" alt="Iletpro" width="100" height="auto">
+<img style="margin-bottom: 0px" src="https://upload.wikimedia.org/wikipedia/en/thumb/2/2a/East_China_Normal_University_logo.svg/300px-East_China_Normal_University_logo.svg.png" alt="ECNU" width="100" height="auto">
 
